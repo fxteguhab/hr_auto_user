@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+		
+		<!-- EMPLOYEE -->
+		
+		<record id="view_employee_form" model="ir.ui.view">
+			<field name="name">hr.employee.form</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//label[@for='name']" position="before">
+					<label for="employee_no" class="oe_edit_only" />
+					<h1>
+						<field name="employee_no" />
+					</h1>
+				</xpath>
+				<field name="name" position="replace">
+					<field name="name" required="1" />			
+				</field>
+				<field name="user_id" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</field>
+			</field>
+		</record>
+
+		<record id="view_employee_tree" model="ir.ui.view">
+			<field name="name">hr.employee.tree</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_tree" />
+			<field name="arch" type="xml">
+				<field name="name" position="before">
+					<field name="employee_no" />			
+				</field>
+			</field>
+		</record>
+
+	</data>
+</openerp>
